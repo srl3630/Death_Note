@@ -3,22 +3,27 @@
   Action_1:
     Minute: 30
     Check:
-        method: default_creds_ssh
+        method: ssh_pass
         args:
-          - password
+          username: username
+          password: password
         groups:
-          -linux
-          -windows
+          - linux
+          - windows
     Punish:
+        type: command
         command: whoami
   Action_2:
     Minute: 60
     Check:
-        method: default_creds_ssh
+        method: ssh_key
         args:
-          - password
+          username: username
+          key: username
         groups:
-          -linux
-          -windows
+          - linux
+          - windows
     Punish:
-        command: whoami
+        type: command
+        args:
+          command: whoami
