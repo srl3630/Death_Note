@@ -1,9 +1,10 @@
 import yaml
 import time
 import Mechanisms
+import os
 
 def parse_punish():
-	with open('punishbook.yml') as f:
+	with open(os.path.join("YML",'death_note.yml')) as f:
 		punishbook = (yaml.safe_load(f))
 	return punishbook
 

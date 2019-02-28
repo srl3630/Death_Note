@@ -3,6 +3,7 @@ import socket
 import datetime
 import re
 import yaml
+import os
 
 
 def logme(error):
@@ -18,10 +19,10 @@ def read_creds(ip_group, ip):
 
 
 def initial_read():
-	f = open('hosts.yml', 'r')
+	f = open(os.path.join("YML",'hosts.yml'), 'r')
 	with open('hosts.yml') as f:
 		os_groups = yaml.safe_load(f)
-	with open('usernames.yml') as f:
+	with open(os.path.join("YML",'usernames.yml')) as f:
 		ip_groups = yaml.safe_load(f)
 	Targets = TargetClctn(os_groups, ip_groups)
 	return Targets
