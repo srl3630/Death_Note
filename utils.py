@@ -1,14 +1,13 @@
 import os
 import yaml
+import re
 from datetime import datetime
 from TargetCollection import TargetClctn
 
 def initial_read():
 	with open(os.path.join("YML",'hosts.yml')) as f:
 		os_groups = yaml.safe_load(f)
-	with open(os.path.join("YML",'usernames.yml')) as f:
-		ip_groups = yaml.safe_load(f)
-	Targets = TargetClctn(os_groups, ip_groups)
+	Targets = TargetClctn(os_groups)
 	return Targets
 
 def parse_punish():
@@ -23,6 +22,8 @@ def logme(error):
 	f.write(error)
 	f.close()
 
-def read_creds(ip_group, ip):
+def read_creds(ip):
+	with open(os.path.join("YML",'usernames.yml')) as f:
+		ip_groups = yaml.safe_load(f)
 	rex = re.search('(\d{1,3}\.\d{1,3}\.)\d{1,3}(\.\d{1,3})', ip)
-	return ip_group[rex.group(1) + 'x' + rex.group(2)][0]
+	return ip_groups[rex.group(1) + 'x' + rex.group(2)][0]

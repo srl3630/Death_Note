@@ -9,21 +9,33 @@
           password: password
         groups:
           - linux
-          - windows
     Punish:
         type: command
-        command: whoami
+        args:
+          command: whoami
   Action_2:
     Minute: 60
     Check:
         method: ssh_key
         args:
           username: username
-          key: username
+          key: Key_Files/privkey1
         groups:
           - linux
-          - windows
     Punish:
         type: command
         args:
           command: whoami
+  Action_3:
+    Minute: 90
+        Check:
+            method: ssh_key
+            args:
+              username: username
+              key: Key_Files/privkey1
+            groups:
+              - linux
+        Punish:
+            type: command
+            args:
+              command: whoami
