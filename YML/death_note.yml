@@ -28,14 +28,14 @@
           command: whoami
   Action_3:
     Minute: 90
-        Check:
-            method: ssh_key
-            args:
-              username: username
-              key: Key_Files/privkey1
-            groups:
+    Check:
+        method: ssh_key
+        args:
+            username: username
+            key: Key_Files/privkey1
+        groups:
               - linux
-        Punish:
-            type: command
-            args:
-              command: whoami
+    Punish:
+        type: command
+        args:
+          command: whoami
