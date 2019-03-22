@@ -1,3 +1,5 @@
+# parent class for all payloads
+
 class payload_class():
 
 	def __init__(self,shell):
@@ -6,6 +8,7 @@ class payload_class():
 	def execute_payload(self):
 		pass
 
+# execute a command
 class command(payload_class):
 
 	def __init__(self,shell,args):
@@ -15,6 +18,7 @@ class command(payload_class):
 	def execute_payload(self):
 		self.shell.execute(self.command)
 
+# drop a payload from this machine to target
 class send_exec_bin_lin(payload_class):
 
 	def __init__(self,shell, args):

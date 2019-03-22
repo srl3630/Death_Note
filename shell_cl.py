@@ -1,5 +1,6 @@
 import os
 
+# generic parent shell class
 class shell_class:
 
 	def __init__(self,shell):
@@ -11,6 +12,7 @@ class shell_class:
 	def close(self):
 		pass
 
+# handles ssh shell
 class ssh_shell(shell_class):
 
 	def __init__(self,shell):
@@ -28,6 +30,8 @@ class ssh_shell(shell_class):
 	def close(self):
 		self.shell.close()
 
+
+# handles socket shell
 class socket_shell(shell_class):
 
 	def __init__(self,shell):
