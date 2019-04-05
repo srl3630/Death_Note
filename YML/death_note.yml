@@ -1,31 +1,30 @@
 #Define start_time = thurs 20th 8:00am
-  Start_time: "4/20/2019 8:00:00"
+  Start_time: "4/4/2019 8:00:00"
   Action_1:
     Minute: 30
     Check:
         method: ssh_pass
         args:
-          username: username
+          username: yoyo
           password: password
         groups:
           - linux
     Punish:
         type: command
         args:
-          command: whoami
+          command: touch /home/yoyo/Desktop/killme.txt
   Action_2:
     Minute: 60
     Check:
-        method: ssh_key
+        method: bind_shell
         args:
-          username: username
-          key: Key_Files/privkey1
+          port: 4444
         groups:
           - linux
     Punish:
         type: command
         args:
-          command: whoami
+          command: touch /home/yoyo/Desktop/helpme.txt
   Action_3:
     Minute: 90
     Check:

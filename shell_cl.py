@@ -1,4 +1,5 @@
 import os
+import utils
 
 # generic parent shell class
 class shell_class:
@@ -24,6 +25,7 @@ class ssh_shell(shell_class):
 		ftp_client.close()
 
 	def execute(self,command):
+		utils.logme("executing command: " + command + "\n")
 		self.shell.exec_command(command)
 
 
@@ -36,12 +38,12 @@ class socket_shell(shell_class):
 
 	def __init__(self,shell):
 		shell_class.__init__(self,shell)
-
 	def drop_payload_linux(self,payload_name,dir_path):
 		pass
 
 	def execute(self,command):
-		self.shell.send(command)
+		utils.logme("executing command: " + command + "\n")
+		self.shell.sendall(bytes(command + "\n", "utf-8"))
 
 	def close(self):
 		self.shell.close()

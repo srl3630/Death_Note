@@ -21,8 +21,9 @@ def parse_punish():
 # logs errors
 def logme(error):
 	f = open('log.log', 'a')
-	f.write(str(datetime.now()) + ": ")
-	f.write(error)
+	mystr = str(datetime.now()) + ": " + str(error)
+	f.write(mystr)
+	print(mystr)
 	f.close()
 
 # reads credentials based on machine

@@ -16,8 +16,7 @@ class TargetClctn(object):
 			for ip in self.os_group[i]:
 				if ip not in used_ips:
 					shell = getattr(exploit_cl,method)(ip,args).get_shell() # execute exploit
-					if inspect.isclass(shell):
-						if issubclass(shell_cl.shell_class,shell): # make sure the shell exists
+					if issubclass(type(shell),shell_cl.shell_class): # make sure the shell exists
 							getattr(payload_cl,punishment['type'])(shell,punishment["args"]).execute_payload()
 							shell.close()
 					used_ips += ip # add up to list of checked ips
