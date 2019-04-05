@@ -6,7 +6,7 @@ from utils import *
 
 def start_punishing():
 	punishbook = parse_punish() # read in death note
-	logme("Starting to serve justice")
+	logme("Starting to serve justice \n")
 	Targets = initial_read() 	#read targets
 	start_Time = time.mktime(time.strptime(punishbook['Start_time'], "%m/%d/%Y %H:%M:%S")) # parse start time as epcoh time
 	for curact in range(1,1000): # iterate through actions
