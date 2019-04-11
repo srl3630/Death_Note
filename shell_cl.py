@@ -10,6 +10,9 @@ class shell_class:
 	def execute(self,command):
 		pass
 
+	def get_shell(self):
+		return self.shell
+
 	def close(self):
 		pass
 
@@ -38,6 +41,7 @@ class socket_shell(shell_class):
 
 	def __init__(self,shell):
 		shell_class.__init__(self,shell)
+
 	def drop_payload_linux(self,payload_name,dir_path):
 		pass
 
@@ -47,3 +51,4 @@ class socket_shell(shell_class):
 
 	def close(self):
 		self.shell.close()
+

@@ -3,6 +3,7 @@
 
 import time
 from utils import *
+from multiprocessing.dummy import Pool as ThreadPool
 
 def start_punishing():
 	punishbook = parse_punish() # read in death note

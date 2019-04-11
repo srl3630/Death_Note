@@ -1,18 +1,19 @@
 #Define start_time = thurs 20th 8:00am
-  Start_time: "4/4/2019 8:00:00"
+  Start_time: "4/05/2019 8:00:00"
   Action_1:
     Minute: 30
     Check:
         method: ssh_pass
         args:
-          username: yoyo
+          username: username
           password: password
         groups:
           - linux
     Punish:
-        type: command
+        type: detcord_file
         args:
-          command: touch /home/yoyo/Desktop/killme.txt
+          file: detfiles.example
+          function: test
   Action_2:
     Minute: 60
     Check:
