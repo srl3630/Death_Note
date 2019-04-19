@@ -20,3 +20,15 @@ The names used in the YML file should correspond to the class name of the module
 Check YML file for examples.
 
 
+To Run:
+run: python3 Death_Note/Carry_Out_Justice.py
+
+To run through Docker 
+sudo docker build -t death_note_image .
+sudo docker run -e PYTHONUNBUFFERED=0 death_note_image
+
+Remember: *"You can’t ever win if you’re always on the defensive. To win, you have to attack.* -**Yagami Light**
+
+
+
+
