@@ -27,7 +27,7 @@ To run through Docker
 sudo docker build -t death_note_image .
 sudo docker run -e PYTHONUNBUFFERED=0 death_note_image
 
-Remember: *"You can’t ever win if you’re always on the defensive. To win, you have to attack.* -**Yagami Light**
+Remember: *"You can’t ever win if you’re always on the defensive. To win, you have to attack."* -**Yagami Light**
 
 
 
